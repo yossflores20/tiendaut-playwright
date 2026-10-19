@@ -3,7 +3,8 @@ import AxeBuilder from '@axe-core/playwright';
 
 test.describe('Análisis de calidad del catálogo', () => {
 
-  test('no hay errores en la consola del navegador', async ({ page }) => {
+  
+test('no hay errores en la consola del navegador', async ({ page }) => {
     const mensajes: string[] = [];
     page.on('console', (msg) => {
       if (msg.type() === 'error') mensajes.push(msg.text());
@@ -15,6 +16,7 @@ test.describe('Análisis de calidad del catálogo', () => {
 
     expect(mensajes, 'Errores encontrados en consola').toEqual([]);
   });
+
 
   test('ninguna petición de red responde con error', async ({ page }) => {
     const fallidas: string[] = [];
